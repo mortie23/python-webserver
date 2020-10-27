@@ -1,0 +1,26 @@
+<html>
+<head>
+  <title>Simple Webserver</title>
+  <script src="jquery-3.5.1.min.js"></script>
+  <link rel="stylesheet" href="w3.css">
+</head>
+<body>
+  <h1>Simple Python Webserver</h1>
+  <input type='button' id="thisbutton" value='test'/>
+</body>
+<script>
+  /**
+   * Handle the Button Click
+   * Basic post of some form data to the root end point
+   */
+  $("#thisbutton").click(function(){
+    $.post("/"
+      , {name: "mortimer", datafile: "README.md"}
+      , function(data, status) {
+        // log to the console the data and status returned from post request
+        console.log("Data: " + data + "\nStatus: " + status);
+      }
+    );
+  });
+</script>
+</html>
